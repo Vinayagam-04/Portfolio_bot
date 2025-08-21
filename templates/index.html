@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinayagam M - Full Stack Developer & AI/ML Engineer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <style>
+        :root {
+            --primary-color: #00d4ff;
+            --secondary-color: #7c3aed;
+            --accent-color: #f59e0b;
+            --dark-bg: #0a0a0a;
+            --darker-bg: #050505;
+            --card-bg: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --border-color: #27272a;
+            --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
+            --gradient-secondary: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--darker-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 4px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 10, 0.95) !important;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-primary) !important;
+            position: relative;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: var(--darker-bg);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(1deg); }
+            66% { transform: translateY(10px) rotate(-1deg); }
+        }
+
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid transparent;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)) padding-box,
+                        linear-gradient(45deg, var(--primary-color), var(--secondary-color)) border-box;
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 30px 60px rgba(0, 212, 255, 0.5);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .typing-text {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            min-height: 2rem;
+        }
+
+        .cta-btn {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 10px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+            color: white;
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .cta-btn.secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Section Styles */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-section {
+            background: var(--card-bg);
+            padding: 100px 0;
+        }
+
+        .about-card {
+            background: var(--darker-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+
+        /* Skills Section */
+        .skills-section {
+            background: var(--dark-bg);
+            padding: 100px 0;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .skill-card:hover::before {
+            left: 100%;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .skill-bar {
+            background: var(--border-color);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 4px;
+            transition: width 2s ease;
+            position: relative;
+        }
+
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Experience Section */
+        .experience-section {
+            background: var(--card-bg);
+            padding: 100px 0;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient-primary);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: 50%;
+            padding-right: 40px;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 50%;
+            margin-right: 0;
+            padding-left: 40px;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: var(--darker-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 25px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -60px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -60px;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
+        }
+
+        /* Certifications Section */
+        .certifications-section {
+            background: var(--dark-bg);
+            padding: 100px 0;
+        }
+
+        .certification-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .certification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-secondary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .certification-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .certification-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.2);
+        }
+
+        .certification-icon {
+            font-size: 2.5rem;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .certification-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .certification-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            background: var(--dark-bg);
+            padding: 100px 0;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--card-bg);
+            padding: 100px 0;
+        }
+
+        .contact-item {
+            background: var(--darker-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .contact-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Particle Background */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            animation: particle-float 6s infinite linear;
+        }
+
+        @keyframes particle-float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .profile-img {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 50px;
+                margin-right: 0;
+                padding-left: 20px;
+                padding-right: 20px;
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::before,
+            .timeline-item:nth-child(even) .timeline-content::before {
+                left: -45px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border-color);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        :root {
+            --primary-color: #00d4ff;
+            --secondary-color: #7c3aed;
+            --accent-color: #f59e0b;
+            --dark-bg: #0a0a0a;
+            --darker-bg: #050505;
+            --card-bg: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --border-color: #27272a;
+            --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
+            --gradient-secondary: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--darker-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 4px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 10, 0.95) !important;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-primary) !important;
+            position: relative;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: var(--darker-bg);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* ... (Your other existing CSS styles go here) ... */
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border-color);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* --- NEW CHATBOT STYLES START HERE --- */
+        .chat-toggle-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2rem;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .chat-toggle-button:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 400px;
+            max-width: 90vw;
+            height: 600px;
+            max-height: 80vh;
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 999;
+            transform: translateY(20px) scale(0.95);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .chat-window.active {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .chat-header {
+            padding: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            padding: 12px 18px;
+            border-radius: 18px;
+            max-width: 80%;
+            line-height: 1.5;
+        }
+
+        .message.user {
+            background: var(--gradient-primary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+        
+        .message.bot {
+            background: var(--darker-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+        
+        .message.bot.typing {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .message.bot.typing span {
+            width: 8px;
+            height: 8px;
+            background-color: var(--text-secondary);
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        
+        .message.bot.typing span:nth-child(1) { animation-delay: -0.32s; }
+        .message.bot.typing span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1.0); }
+        }
+
+        .chat-input-area {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid var(--border-color);
+            gap: 10px;
+        }
+        
+        .chat-input-area input {
+            flex-grow: 1;
+            background: var(--darker-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 25px;
+            padding: 10px 20px;
+            color: var(--text-primary);
+            outline: none;
+        }
+        
+        .chat-input-area input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+        }
+
+        .chat-input-area .chat-btn {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .chat-input-area .chat-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .chat-input-area .chat-btn.mic.listening {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 212, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0); }
+        }
+        /* --- NEW CHATBOT STYLES END HERE --- */
+    </style>
+</head>
+<body>
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+   
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">VM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="particles">
+            <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="left: 20%; animation-delay: 1s;"></div>
+            <div class="particle" style="left: 30%; animation-delay: 2s;"></div>
+            <div class="particle" style="left: 40%; animation-delay: 3s;"></div>
+            <div class="particle" style="left: 50%; animation-delay: 4s;"></div>
+            <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+            <div class="particle" style="left: 70%; animation-delay: 6s;"></div>
+            <div class="particle" style="left: 80%; animation-delay: 7s;"></div>
+            <div class="particle" style="left: 90%; animation-delay: 8s;"></div>
+        </div>
+        <div class="container py-5">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-4 text-center mb-4 mb-md-0" data-aos="fade-right">
+                    <img src="static/vinayak.jpg" alt="Vinayagam M" class="profile-img floating">
+                </div>
+                <div class="col-md-8 text-center text-md-start" data-aos="fade-left">
+                    <h1 class="hero-title">Hello, I'm Vinayagam M</h1>
+                    <div class="typing-text" id="typing-text"></div>
+                    <p class="lead mb-4 text-secondary">Passionate Full Stack Developer & AI/ML Engineer</p>
+                    <a href="#contact" class="cta-btn">
+                        <i class="bi bi-envelope me-2"></i>Get in Touch
+                    </a>
+                    <a href="static/Vinayagam_Resume.pdf" class="cta-btn secondary" download>
+                        <i class="bi bi-download me-2"></i>Download Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">About Me</h2>
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center mb-4 mb-md-0" data-aos="fade-right">
+                    <img src="static/vinayak.jpg" alt="Vinayagam M" class="profile-img">
+                </div>
+                <div class="col-md-8" data-aos="fade-left">
+                    <div class="about-card">
+                        <p class="fs-5 text-secondary mb-4">
+                            I'm a passionate Full Stack Developer and AI/ML Engineer with expertise in building scalable web applications and implementing machine learning solutions. With a strong foundation in both frontend and backend technologies, I specialize in creating innovative solutions that solve real-world problems.
+                        </p>
+                        <p class="fs-5 text-secondary mb-4">
+                            My journey in technology is driven by continuous learning and a commitment to excellence. I enjoy working with cutting-edge technologies and collaborating with teams to deliver high-quality products that make a difference.
+                        </p>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h6 class="text-primary fw-bold mb-2">
+                                    <i class="bi bi-geo-alt-fill me-2"></i>Location
+                                </h6>
+                                <p class="text-secondary small">Thoothukudi, Tamil Nadu, India</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="text-primary fw-bold mb-2">
+                                    <i class="bi bi-phone-fill me-2"></i>Contact
+                                </h6>
+                                <p class="text-secondary small">+91 6382401069<br>vinayagam.contact@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Skills & Expertise</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-card">
+                        <i class="bi bi-code-slash skill-icon"></i>
+                        <h5 class="mb-3">Programming</h5>
+                        <p class="text-secondary mb-3">Python, Java, C#</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-card">
+                        <i class="bi bi-brain skill-icon"></i>
+                        <h5 class="mb-3">AI/ML</h5>
+                        <p class="text-secondary mb-3">TensorFlow, Keras, OpenCV, NLP, RAG (Retrieval-Augmented Generation)</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="skill-card">
+                        <i class="bi bi-globe skill-icon"></i>
+                        <h5 class="mb-3">Web Development</h5>
+                        <p class="text-secondary mb-3">HTML, CSS, JavaScript, Flask, Streamlit</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="skill-card">
+                        <i class="bi bi-database skill-icon"></i>
+                        <h5 class="mb-3">Database</h5>
+                        <p class="text-secondary mb-3">MySQL, Vector DB (ChromaDB)</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="skill-card">
+                        <i class="bi bi-cloud skill-icon"></i>
+                        <h5 class="mb-3">Deployment</h5>
+                        <p class="text-secondary mb-3">Firebase, Render</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="skill-card">
+                        <i class="bi bi-tools skill-icon"></i>
+                        <h5 class="mb-3">Tools</h5>
+                        <p class="text-secondary mb-3">XAMPP, TeamViewer, AnyDesk, Unity</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="700">
+                    <div class="skill-card">
+                        <i class="bi bi-lightbulb skill-icon"></i>
+                        <h5 class="mb-3">Interests</h5>
+                        <p class="text-secondary mb-3">Robotics, Web Development, Sustainable Farming, Chatbots</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="800">
+                    <div class="skill-card">
+                        <i class="bi bi-search skill-icon"></i>
+                        <h5 class="mb-3">Additional</h5>
+                        <p class="text-secondary mb-3">Data Labeling, Computer Vision, Deep Learning</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Internship Experiences</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-content">
+                        <h5 class="text-primary">AI Dataset Labeling Intern</h5>
+                        <h6 class="text-secondary">Alfa TKG Integrated Solutions</h6>
+                        <p class="text-secondary">Labeled datasets and performed computer vision tasks for robotic welding using tools like TeamViewer and AnyDesk.</p>
+                        <div class="mt-2">
+                            <span class="badge bg-primary">Stipend: ₹10,000</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-content">
+                        <h5 class="text-primary">RAG-Based AI Intern</h5>
+                        <h6 class="text-secondary">Certainty.ai</h6>
+                        <p class="text-secondary">Worked on Retrieval-Augmented Generation (RAG) systems. Optimized vector database operations and retrieval flow.</p>
+                        <div class="mt-2">
+                            <span class="badge bg-primary">Stipend: ₹15,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Certifications & Achievements</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="certification-card">
+                        <i class="bi bi-award certification-icon"></i>
+                        <h5 class="card-title mb-3">AI for Everyone</h5>
+                        <p class="card-text text-secondary mb-3">Coursera certification in AI fundamentals and applications.</p>
+                        <a href="https://www.linkedin.com/posts/vinayagam-m-aiml_certificationachievement-courseragraduate-activity-7165939970132684800-jjdS?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQXFIoBu-vQ1hDVuPtHHAZNnZrSP0gsbNc" target="_blank" class="certification-link">
+                            <i class="bi bi-link-45deg me-2"></i>View Certificate
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="certification-card">
+                        <i class="bi bi-trophy certification-icon"></i>
+                        <h5 class="card-title mb-3">Learnathon</h5>
+                        <p class="card-text text-secondary mb-3">Certificate for continuous learning and skill development.</p>
+                        <a href="https://www.linkedin.com/posts/vinayagam-m-aiml_learnathon-continuouslearning-activity-7167616540396257280-N7dh?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQXFIoBu-vQ1hDVuPtHHAZNnZrSP0gsbNc" target="_blank" class="certification-link">
+                            <i class="bi bi-link-45deg me-2"></i>View Certificate
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="certification-card">
+                        <i class="bi bi-file-earmark-text certification-icon"></i>
+                        <h5 class="card-title mb-3">Paper Presentation</h5>
+                        <p class="card-text text-secondary mb-3">Successfully presented research paper at Bannari Amman College.</p>
+                        <a href="https://www.linkedin.com/posts/vinayagam-m-aiml_research-paperpresentation-activity-7172623632995696640-1rkg?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQXFIoBu-vQ1hDVuPtHHAZNnZrSP0gsbNc" target="_blank" class="certification-link">
+                            <i class="bi bi-link-45deg me-2"></i>View Certificate
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="certification-card">
+                        <i class="bi bi-code-square certification-icon"></i>
+                        <h5 class="card-title mb-3">GitHub Copilot Workshop</h5>
+                        <p class="card-text text-secondary mb-3">Workshop on GitHub Copilot for AI-powered coding assistance.</p>
+                        <a href="https://www.linkedin.com/posts/vinayagam-m-aiml_githubcopilot-techinnovation-activity-7172624335348649984-AwH3?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQXFIoBu-vQ1hDVuPtHHAZNnZrSP0gsbNc" target="_blank" class="certification-link">
+                            <i class="bi bi-link-45deg me-2"></i>View Certificate
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="certification-card">
+                        <i class="bi bi-building certification-icon"></i>
+                        <h5 class="card-title mb-3">NASSCOM</h5>
+                        <p class="card-text text-secondary mb-3">NASSCOM certification for industry-relevant skills.</p>
+                        <a href="https://www.linkedin.com/posts/vinayagam-m-aiml_nasscom-activity-7172629592174739456-G7Yu?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQXFIoBu-vQ1hDVuPtHHAZNnZrSP0gsbNc" target="_blank" class="certification-link">
+                            <i class="bi bi-link-45deg me-2"></i>View Certificate
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="certification-card">
+                        <i class="bi bi-robot certification-icon"></i>
+                        <h5 class="card-title mb-3">UI-Path Automation</h5>
+                        <p class="card-text text-secondary mb-3">Certification in UI-Path RPA automation tools and techniques.</p>
+                        <a href="https://www.linkedin.com/posts/vinayagam-m-aiml_skillathon-activity-7175818781661769732-MRWd?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQXFIoBu-vQ1hDVuPtHHAZNnZrSP0gsbNc" target="_blank" class="certification-link">
+                            <i class="bi bi-link-45deg me-2"></i>View Certificate
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="700">
+                    <div class="certification-card">
+                        <i class="bi bi-brain certification-icon"></i>
+                        <h5 class="card-title mb-3">Machine Learning for All</h5>
+                        <p class="card-text text-secondary mb-3">Comprehensive machine learning certification covering core concepts.</p>
+                        <a href="https://www.linkedin.com/posts/vinayagam-m-aiml_machinelearning-certification-innovation-activity-7179699805579882496-3R-e?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQXFIoBu-vQ1hDVuPtHHAZNnZrSP0gsbNc" target="_blank" class="certification-link">
+                            <i class="bi bi-link-45deg me-2"></i>View Certificate
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="800">
+                    <div class="certification-card">
+                        <i class="bi bi-graph-up certification-icon"></i>
+                        <h5 class="card-title mb-3">NPTEL - Data Analytics with Python</h5>
+                        <p class="card-text text-secondary mb-3">NPTEL certification in data analytics using Python programming.</p>
+                        <a href="https://www.linkedin.com/posts/vinayagam-m-aiml_dataanalytics-python-nptel-activity-7196476109452988416-d0nF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQXFIoBu-vQ1hDVuPtHHAZNnZrSP0gsbNc" target="_blank" class="certification-link">
+                            <i class="bi bi-link-45deg me-2"></i>View Certificate
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
+            <div class="row g-4">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <h5 class="card-title mb-3">
+                            <i class="bi bi-robot me-2 text-primary"></i>AGNI: Tamil Chatbot with Gemini API
+                        </h5>
+                        <p class="card-text text-secondary mb-4">Developed a Telegram chatbot in Tamil using Gemini API, designed for intuitive, culturally relevant interactions and programming query support.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Gemini API</span>
+                            <span class="tech-tag">Telegram Bot</span>
+                            <span class="tech-tag">NLP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <h5 class="card-title mb-3">
+                            <i class="bi bi-leaf me-2 text-primary"></i>Eco Weed AI: Automated Weed Removal
+                        </h5>
+                        <p class="card-text text-secondary mb-4">Built an AI-powered robotic system using deep learning and Raspberry Pi for sustainable, chemical-free farming with mobile-based emergency control.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Deep Learning</span>
+                            <span class="tech-tag">Raspberry Pi</span>
+                            <span class="tech-tag">Computer Vision</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-card">
+                        <h5 class="card-title mb-3">
+                            <i class="bi bi-person-check me-2 text-primary"></i>RPA-Based Attendance Management System
+                        </h5>
+                        <p class="card-text text-secondary mb-4">Designed a Robotic Process Automation system integrated with computer vision for efficient attendance tracking.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">RPA</span>
+                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Automation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-card">
+                        <h5 class="card-title mb-3">
+                            <i class="bi bi-mortarboard me-2 text-primary"></i>EduBot: Multi-language Educational Chatbot
+                        </h5>
+                        <p class="card-text text-secondary mb-4">Created an educational chatbot capable of handling multiple languages using NLP, RAG, and Streamlit.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">RAG</span>
+                            <span class="tech-tag">Streamlit</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                        <div class="mt-3">
+                            <a href="https://edubot-22af.onrender.com/" target="_blank" class="cta-btn secondary">
+                                <i class="bi bi-link-45deg me-2"></i>View Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <p class="fs-5 text-center mb-5 text-secondary" data-aos="fade-up">Ready to collaborate on your next project? Let's connect!</p>
+                    <div class="row g-4">
+                        <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                            <div class="contact-item">
+                                <i class="bi bi-envelope-fill contact-icon"></i>
+                                <a href="mailto:vinayagam.contact@gmail.com" class="contact-link">Email</a>
+                            </div>
+                        </div>
+                        <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                            <div class="contact-item">
+                                <i class="bi bi-telephone-fill contact-icon"></i>
+                                <a href="tel:+916382401069" class="contact-link">Call</a>
+                            </div>
+                        </div>
+                        <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                            <div class="contact-item">
+                                <i class="bi bi-linkedin contact-icon"></i>
+                                <a href="https://linkedin.com/in/vinayagam-m-aiml" target="_blank" class="contact-link">LinkedIn</a>
+                            </div>
+                        </div>
+                        <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+                            <div class="contact-item">
+                                <i class="bi bi-github contact-icon"></i>
+                                <a href="https://github.com/Vinayagam-04" target="_blank" class="contact-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darker-bg text-white py-4 border-top border-secondary">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 Vinayagam M. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button class="chat-toggle-button" id="chat-toggle">
+        <i class="bi bi-robot"></i>
+    </button>
+
+    <div class="chat-window" id="chat-window">
+        <div class="chat-header">
+            <span>Vinayagam's AI Assistant</span>
+            <button class="close-btn" id="chat-close">&times;</button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot">
+                Hi there! 👋 I'm Vinayagam's AI assistant. Feel free to ask me anything about his skills, projects, or experience.
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <button class="chat-btn mic" id="mic-btn"><i class="bi bi-mic-fill"></i></button>
+            <input type="text" id="chat-input" placeholder="Ask me a question...">
+            <button class="chat-btn send" id="send-btn"><i class="bi bi-send-fill"></i></button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Loading screen
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 1000);
+        });
+
+        // Typing animation
+        new Typed('#typing-text', {
+            strings: [
+                'Full Stack Developer',
+                'AI/ML Engineer',
+                'Problem Solver',
+                'Innovation Enthusiast'
+            ],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 2000,
+            loop: true
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.3)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Skill bars animation
+        const skillBars = document.querySelectorAll('.skill-progress');
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.width = entry.target.style.width;
+                }
+            });
+        }, observerOptions);
+
+        skillBars.forEach(bar => {
+            skillObserver.observe(bar);
+        });
+
+        // Add floating particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 6 + 's';
+            document.querySelector('.particles').appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 6000);
+        }
+
+        setInterval(createParticle, 2000);
+
+        // Parallax effect for hero background
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const heroBg = document.querySelector('.hero-bg');
+            heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+        // --- (Your existing script content for AOS, Typed.js, etc. goes here) ---
+        
+        // --- NEW CHATBOT JAVASCRIPT START HERE ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatWindow = document.getElementById('chat-window');
+            const chatToggleBtn = document.getElementById('chat-toggle');
+            const chatCloseBtn = document.getElementById('chat-close');
+            const chatMessages = document.getElementById('chat-messages');
+            const chatInput = document.getElementById('chat-input');
+            const sendBtn = document.getElementById('send-btn');
+            const micBtn = document.getElementById('mic-btn');
+
+            // Toggle chat window
+            chatToggleBtn.addEventListener('click', () => chatWindow.classList.toggle('active'));
+            chatCloseBtn.addEventListener('click', () => chatWindow.classList.remove('active'));
+
+            // Send message on click or Enter key
+            sendBtn.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+
+            // Handle voice input
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (SpeechRecognition) {
+                const recognition = new SpeechRecognition();
+                recognition.continuous = false;
+                recognition.lang = 'en-US';
+                recognition.interimResults = false;
+                recognition.maxAlternatives = 1;
+
+                micBtn.addEventListener('click', () => {
+                    micBtn.classList.add('listening');
+                    recognition.start();
+                });
+
+                recognition.onresult = (event) => {
+                    const speechResult = event.results[0][0].transcript;
+                    chatInput.value = speechResult;
+                    sendMessage();
+                };
+
+                recognition.onspeechend = () => {
+                    recognition.stop();
+                    micBtn.classList.remove('listening');
+                };
+
+                recognition.onerror = (event) => {
+                    console.error('Speech recognition error:', event.error);
+                    micBtn.classList.remove('listening');
+                };
+            } else {
+                micBtn.style.display = 'none'; // Hide mic button if not supported
+            }
+
+
+            async function sendMessage() {
+                const userInput = chatInput.value.trim();
+                if (userInput === '') return;
+
+                appendMessage(userInput, 'user');
+                chatInput.value = '';
+                showTypingIndicator();
+
+                try {
+                    // IMPORTANT: Replace with your deployed backend URL in production.
+                    const response = await fetch('http://127.0.0.1:5000/chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ message: userInput }),
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    
+                    removeTypingIndicator();
+                    appendMessage(data.reply_text, 'bot');
+                    
+                    // Optional: Play audio response
+                    if (data.reply_audio_url) {
+                        const audio = new Audio(data.reply_audio_url);
+                        audio.play();
+                    }
+
+                } catch (error) {
+                    console.error('Error fetching chatbot response:', error);
+                    removeTypingIndicator();
+                    appendMessage("I'm having a little trouble connecting. Please try again later.", 'bot');
+                }
+            }
+
+            function appendMessage(text, type) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message', type);
+                messageDiv.textContent = text;
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll
+            }
+            
+            function showTypingIndicator() {
+                const typingDiv = document.createElement('div');
+                typingDiv.classList.add('message', 'bot', 'typing');
+                typingDiv.id = 'typing-indicator';
+                typingDiv.innerHTML = '<span></span><span></span><span></span>';
+                chatMessages.appendChild(typingDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            function removeTypingIndicator() {
+                const typingIndicator = document.getElementById('typing-indicator');
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+            }
+        });
+        // --- NEW CHATBOT JAVASCRIPT END HERE ---
+
+    </script>
+</body>
+</html>
