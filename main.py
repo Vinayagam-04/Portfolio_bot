@@ -101,7 +101,7 @@ Here is the resume you must use:
 """
 
 # Initialize the Gemini model
-model = genai.GenerativeModel('gemini-2.0-flash', system_instruction=system_prompt)
+model = genai.GenerativeModel('gemini-2.5-flash', system_instruction=system_prompt)
 chat = model.start_chat(history=[])
 
 # --- Main Page Route ---
